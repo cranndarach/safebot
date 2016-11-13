@@ -15,7 +15,7 @@ npm install safebot
 ### From source:
 
 ```sh
-git clone https://github.com/cranndarach/safebot
+git clone https://github.com/cranndarach/safebot.git
 cd safebot
 npm install
 ```
