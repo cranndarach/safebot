@@ -13,7 +13,16 @@
     "accessibility"
   ],
   "author": "R Steiner",
+  "maintainer":"@cranndarach",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cranndarach/safebot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cranndarach/safebot/issues"
+  },
+  "homepage": "https://github.com/cranndarach/safebot",
   "dependencies": {
     "botkit": "^0.4.1"
   }
