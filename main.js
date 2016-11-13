@@ -40,17 +40,25 @@ controller.hears("[mM]igrate <#([^\s]*)> <#([^\s]*)>", ['direct_message'], (bot,
     });
 });
 
-// Receives a DM that it finds confusing
-controller.on('direct_message', (bot, message) => {
-    console.log(message);
-    botlog(message);
-    bot.reply(message, `I heard \`${message.text}\`, but I don't know what that means.`);
+// Receives a help request
+controller.hears('help', ['direct_message', 'mention', 'direct_mention'], (bot, message) => {
+    bot.reply(message, `Send a direct message to me, <@safebot>, with your command.
+        - \`tell #channel1 a message\`: I will say \`a message\` to #channel1
+        - \`migrate #channel1 #channel2\`: I will post \`<- #channel2\` in #channel1
+  Make sure to \`/invite\` me to any channel you want me to post to!`);
 });
 
 // To emhasize appreciation and promote a nice atmosphere
 controller.hears(["[tT]hank(.*)", "[sS]orry(.*)"], ['mention', 'direct_mention'], (bot, message) => {
     console.log(message);
     bot.reply(message, "Thank you for understanding! :sparkles:");
+});
+
+// Receives a DM that it finds confusing
+controller.on(['direct_message', 'mention', 'direct_mention'], (bot, message) => {
+    console.log(message);
+    botlog(message);
+    bot.reply(message, `I heard \`${message.text}\`, but I don't know what that means. Try sending \`help\` for usage information.`);
 });
 
 
