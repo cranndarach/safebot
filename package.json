@@ -1,6 +1,6 @@
 {
   "name": "safebot",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "\"A Slack bot that will share your message with the team, anonymously.\"",
   "main": "main.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "accessibility"
   ],
   "author": "R Steiner",
-  "maintainer":"@cranndarach",
+  "maintainer": "@cranndarach",
   "license": "MIT",
   "repository": {
     "type": "git",
