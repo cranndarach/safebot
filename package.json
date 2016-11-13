@@ -1,0 +1,19 @@
+{
+  "name": "safebot",
+  "version": "0.1.0",
+  "description": "\"A Slack bot that will share your message with the team, anonymously.\"",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slack",
+    "safety",
+    "accessibility"
+  ],
+  "author": "R Steiner",
+  "license": "MIT",
+  "dependencies": {
+    "botkit": "^0.4.1"
+  }
+}
