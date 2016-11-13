@@ -4,6 +4,7 @@
   "description": "\"A Slack bot that will share your message with the team, anonymously.\"",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
