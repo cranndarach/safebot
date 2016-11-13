@@ -26,6 +26,7 @@ controller.hears("tell <#([^\s]*)> (.*)", ['direct_message'], (bot, message) => 
     };
     var msg = message.match[2];
     console.log(`I heard \`${message.text}\``);
+    botlog(message);
     bot.startConversation({channel: channl.id}, (err, convo) => {
         if (err) {
             bot.botkit.log(err);
@@ -35,10 +36,25 @@ controller.hears("tell <#([^\s]*)> (.*)", ['direct_message'], (bot, message) => 
     });
 });
 
-
-
 controller.on('direct_message', (bot, message) => {
     // console.log(bot);
     console.log(message);
-    bot.reply(message, `I heard \`${message.text}\``);
+    bot.reply(message, `I heard \`${message.text}\`, but I don't know what that means.`);
 })
+
+function botlog(message) {
+    var logPath = __dirname + "/safebot.log";
+    fs.appendFile(logPath, `, ${JSON.stringify(message)}`, (err) => {
+        if (err) {
+            console.log(`Could not find ${logPath}`);
+            return;  //. Will create it.`);
+            // fs.writeFile(logPath, JSON.stringify(message), (err) => {
+            //     if (err) {
+            //         console.log(err.stack);
+            //         return;
+            //     }
+            // });
+        }
+        console.log(`Wrote message to ${logPath}`);
+    });
+}
