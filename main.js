@@ -1,6 +1,11 @@
-const tokens = require(__dirname + "/tokens.js");
 const botkit = require('botkit');
 const fs = require('fs');
+
+try {
+    const tokens = require(__dirname + "/tokens.js");
+} catch (err) {
+    const tokens = process.env.BOT_KEY;
+}
 
 // Create bot
 const controller = botkit.slackbot();
