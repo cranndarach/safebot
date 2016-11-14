@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js || nodejs main.js",
+    "build":"sh ./utils/build-script.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
