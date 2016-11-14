@@ -1,11 +1,11 @@
 {
   "name": "safebot",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "\"A Slack bot that will share your message with the team, anonymously.\"",
   "main": "main.js",
   "scripts": {
     "start": "node main.js || nodejs main.js",
-    "build":"sh ./utils/build-script.sh",
+    "build": "sh ./utils/build-script.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
