@@ -69,13 +69,24 @@ controller.on(['direct_message', 'mention', 'direct_mention'], (bot, message) =>
 // Saves the received message object to the log file (not in perfect JSON)
 function botlog(message) {
     var logPath = __dirname + "/safebot.log";
-    fs.appendFile(logPath, `, ${JSON.stringify(message)}`, (err) => {
+    var user = message.user;
+    var ts = parseInt(message.ts.split(".")[0]);
+    var time = new Date(ts * 1000);
+    console.log(`time: ${time}`);
+    fs.appendFile(logPath, `[${user} @ ${time}]: ${message.text}\n`, (err) => {
         if (err) {
             console.log(`Could not find ${logPath}`);
             return;
         }
         console.log(`Wrote message to ${logPath}`);
     });
+    // fs.appendFile(logPath, `, ${JSON.stringify(message)}`, (err) => {
+    //     if (err) {
+    //         console.log(`Could not find ${logPath}`);
+    //         return;
+    //     }
+    //     console.log(`Wrote message to ${logPath}`);
+    // });
 }
 
 // Channel links in messages are in the format "<#IDSTRING|name>"
