@@ -68,6 +68,12 @@ Safebot will post in `#channel`:
 i said hi
 ```
 
+## To-do:
+
+* Automatically add safebot to existing and future channels
+* Log usernames instead of user IDs
+* Functionality to keep a list of requested content warnings, and a specific command for `cw`s
+
 ## License info
 
-This project is distributed under the terms of the MIT license, copyright 2016 R. Steiner
+This project is distributed under the terms of the MIT license, copyright 2016 R Steiner
