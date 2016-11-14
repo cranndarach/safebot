@@ -1,6 +1,6 @@
 {
   "name": "safebot",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "\"A Slack bot that will share your message with the team, anonymously.\"",
   "main": "main.js",
   "scripts": {
