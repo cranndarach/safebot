@@ -2,7 +2,7 @@ const botkit = require('botkit');
 const fs = require('fs');
 
 try {
-    var tokens = require(__dirname + "/tokens.js");
+    var tokens = require(process.cwd() + "/tokens.js");
 } catch (err) {
     var tokens = process.env.BOT_KEY;
 }
