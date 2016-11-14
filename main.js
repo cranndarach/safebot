@@ -2,9 +2,9 @@ const botkit = require('botkit');
 const fs = require('fs');
 
 try {
-    const tokens = require(__dirname + "/tokens.js");
+    var tokens = require(__dirname + "/tokens.js");
 } catch (err) {
-    const tokens = process.env.BOT_KEY;
+    var tokens = process.env.BOT_KEY;
 }
 
 // Create bot
