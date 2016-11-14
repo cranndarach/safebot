@@ -4,9 +4,15 @@ const botkit = require('botkit');
 const fs = require('fs');
 
 try {
-    var tokens = require(process.cwd() + "/tokens.js");
+    // console.log(process.cwd());
+    // console.log(__dirname);
+    var tokens = require(__dirname + "/tokens.js");
 } catch (err) {
-    var tokens = process.env.BOT_KEY;
+    try {
+        var tokens = require(__dirname + "../tokens.js");
+    } catch (err2) {
+        var tokens = process.env.BOT_KEY;
+    }
 }
 
 // Create bot
