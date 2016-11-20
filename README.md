@@ -2,6 +2,8 @@
 
 >Slack bot that shares your messages with your team, anonymously.
 
+## Note: Development on this branch is on hold indefinitely. Please see branch `master` for current work.
+
 ## To install
 
 Requires node.js and npm
