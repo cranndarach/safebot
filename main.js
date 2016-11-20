@@ -9,7 +9,7 @@ try {
     try {
         var tokens = require(__dirname + "../tokens.js");
     } catch (err2) {
-        var tokens = process.env.BOT_KEY;
+        var tokens = {botToken: process.env.BOT_KEY};
     }
 }
 
