@@ -1,18 +1,11 @@
 const botkit = require('botkit');
 const fs = require('fs');
-const tokens = require(__dirname + "/tokens.js");
-
-// try {
-//     tokens = require(__dirname + "/tokens.js");
-// } catch (err) {
-//     tokens = require(__dirname + "../tokens.js");
-// }
-// console.log(tokens);
+const TOKEN = process.env.BOT_TOKEN;
 
 // Create bot
 const controller = botkit.slackbot();
 controller.spawn({
-  token: tokens.botToken
+  token: TOKEN
 }).startRTM();
 
 // Receives a DM in the format "tell #code install gentoo"
