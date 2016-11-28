@@ -5,7 +5,8 @@
 ## To build
 
 ```sh
-git clone https://github.com/cranndarach/safebot/tree/docker
+git clone https://github.com/cranndarach/safebot.git
+git checkout docker
 cd safebot
 docker build -t <YOUR_USERNAME>/safebot .
 ```
