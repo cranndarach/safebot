@@ -2,43 +2,21 @@
 
 >Slack bot that shares your messages with your team, anonymously.
 
-## To install
-
-Requires node.js and npm
-
-### Install via npm:
+## To build
 
 ```sh
-npm install safebot
-```
-
-### From source:
-
-```sh
-git clone https://github.com/cranndarach/safebot.git
+git clone https://github.com/cranndarach/safebot/tree/docker
 cd safebot
-npm install
+docker build -t <YOUR_USERNAME>/safebot .
 ```
 
-## To set up and run
+## To run
 
 First, set up a [bot user](https://api.slack.com/bot-users) on your team and get an API token from Slack. Make sure to `/invite` safebot to any channel where it might be used!
 
-Then, create a file in the project's root directory (`safebot/`) called `tokens.js` with the following code (replace "YOUR_API_TOKEN_HERE" with your API token)
-
-```javascript
-module.exports = {
-    botToken: "YOUR_API_TOKEN_HERE"
-};
-```
-
-Then start with
-
 ```sh
-npm start
+docker run [-p <YOUR_PREFERRED_PORT>:8080] -d -e BOT_TOKEN=<YOUR_BOT_TOKEN> <YOUR_USERNAME>/safebot
 ```
-
-Hop over to your Slack and start messaging!
 
 ## Message commands
 
