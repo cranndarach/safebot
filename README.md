@@ -6,8 +6,8 @@
 
 ```sh
 git clone https://github.com/cranndarach/safebot.git
-git checkout docker
 cd safebot
+git checkout docker
 docker build -t <YOUR_USERNAME>/safebot .
 ```
 
