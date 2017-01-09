@@ -1,5 +1,9 @@
 # @safebot
 
+[![NPM](https://nodei.co/npm/safebot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/safebot/)
+
+[![npm](https://img.shields.io/npm/v/safebot.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/safebot) [![license](https://img.shields.io/github/license/cranndarach/safebot.svg?maxAge=2592000?style=plastic)](https://github.com/cranndarach/safebot/blob/master/LICENSE)
+
 >Slack bot that shares your messages with your team, anonymously.
 
 ## To install
