@@ -42,7 +42,7 @@ controller.hears("[mM]igrate <#([^\s]*)> <#([^\s]*)>", ['direct_message'], (bot,
 
 // Receives a help request
 controller.hears('help', ['direct_message', 'mention', 'direct_mention'], (bot, message) => {
-    bot.reply(message, `Send a direct message to me, <@safebot>, with your command.
+    bot.reply(message, `Send a direct message to me, <@the-real-safebot>, with your command.
         - \`tell #channel1 a message\`: I will say \`a message\` to #channel1
         - \`migrate #channel1 #channel2\`: I will post \`<- #channel2\` in #channel1
   Make sure to \`/invite\` me to any channel you want me to post to!`);
