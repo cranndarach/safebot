@@ -24,8 +24,8 @@ controller.hears("[tT]ell <#([^\s]*)> (.*)", ['direct_message'], (bot, message) 
         bot.reply(message, "Sorry, I can't send a message to everyone.");
         return;
     }
-    if (msg.includes("!channel") && (channl.name == "general" || channl.name == "meta" || channl.name == "random")) {
-        bot.reply(message, `Sorry, I can't use @channel in ${channl}.`);
+    if (msg.includes("!channel") && (splitChannel(channl).name == "general" || splitChannel(channl).name == "meta" || splitChannel(channl).name == "random")) {
+        bot.reply(message, `Sorry, I can't use @channel in <#${channl}>.`);
         return;
     }
     console.log(`I heard \`${message.text}\``);
