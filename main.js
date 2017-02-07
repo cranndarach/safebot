@@ -1,11 +1,18 @@
 const botkit = require('botkit');
 const fs = require('fs');
-const TOKEN = process.env.BOT_TOKEN;
+const tokens = require(__dirname + "/tokens.js");
+
+// try {
+//     tokens = require(__dirname + "/tokens.js");
+// } catch (err) {
+//     tokens = require(__dirname + "../tokens.js");
+// }
+// console.log(tokens);
 
 // Create bot
 const controller = botkit.slackbot();
 controller.spawn({
-  token: TOKEN
+  token: tokens.botToken
 }).startRTM();
 
 // Receives a DM in the format "tell #code install gentoo"
@@ -13,6 +20,14 @@ controller.hears("[tT]ell <#([^\s]*)> (.*)", ['direct_message'], (bot, message) 
     var channl = message.match[1]
     var channlID = splitChannel(channl).id;
     var msg = message.match[2];
+    if (msg.includes("!everyone")) {
+        bot.reply(message, "Sorry, I can't send a message to everyone.");
+        return;
+    }
+    if (msg.includes("!channel") && (channl.name == "general" || channl.name == "meta" || channl.name == "random")) {
+        bot.reply(message, `Sorry, I can't use @channel in ${channl}.`);
+        return;
+    }
     console.log(`I heard \`${message.text}\``);
     botlog(message);
     bot.startConversation({channel: channlID}, (err, convo) => {
@@ -42,7 +57,7 @@ controller.hears("[mM]igrate <#([^\s]*)> <#([^\s]*)>", ['direct_message'], (bot,
 
 // Receives a help request
 controller.hears('help', ['direct_message', 'mention', 'direct_mention'], (bot, message) => {
-    bot.reply(message, `Send a direct message to me, <@the-real-safebot>, with your command.
+    bot.reply(message, `Send a direct message to me, <@safebot>, with your command.
         - \`tell #channel1 a message\`: I will say \`a message\` to #channel1
         - \`migrate #channel1 #channel2\`: I will post \`<- #channel2\` in #channel1
   Make sure to \`/invite\` me to any channel you want me to post to!`);
@@ -68,7 +83,7 @@ controller.on(['direct_message', 'mention', 'direct_mention'], (bot, message) =>
 
 // Saves the received message object to the log file (not in perfect JSON)
 function botlog(message) {
-    var logPath = __dirname + "/safebot.log";
+    var logPath = __dirname + "/logs/safebot.log";
     var user = message.user;
     var ts = parseInt(message.ts.split(".")[0]);
     var time = new Date(ts * 1000);
