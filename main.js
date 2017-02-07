@@ -20,6 +20,14 @@ controller.hears("[tT]ell <#([^\s]*)> (.*)", ['direct_message'], (bot, message) 
     var channl = message.match[1]
     var channlID = splitChannel(channl).id;
     var msg = message.match[2];
+    if (msg.includes("!everyone")) {
+        bot.reply(message, "Sorry, I can't send a message to everyone.");
+        return;
+    }
+    if (msg.includes("!channel") && (channl.name == "general" || channl.name == "meta" || channl.name == "random")) {
+        bot.reply(message, `Sorry, I can't use @channel in ${channl}.`);
+        return;
+    }
     console.log(`I heard \`${message.text}\``);
     botlog(message);
     bot.startConversation({channel: channlID}, (err, convo) => {
@@ -75,7 +83,7 @@ controller.on(['direct_message', 'mention', 'direct_mention'], (bot, message) =>
 
 // Saves the received message object to the log file (not in perfect JSON)
 function botlog(message) {
-    var logPath = __dirname + "/safebot.log";
+    var logPath = __dirname + "/logs/safebot.log";
     var user = message.user;
     var ts = parseInt(message.ts.split(".")[0]);
     var time = new Date(ts * 1000);
